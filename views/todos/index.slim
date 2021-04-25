@@ -1,0 +1,17 @@
+h2 Veckans träning
+p Hej, nedan ser du dina veckoaktiviteter
+
+input name="user_id" type="hidden" value="#{user_id}"
+
+ul
+   - todos.each do |todo|
+    li  
+        span #{todo["day"]} : #{todo["content"]} 
+        form method="POST" action="#{todo['id']}/delete"
+            input type="submit" value="Delete"
+
+form action="newtodo" method="post"
+    <select name="day"><option value="Måndag">Måndag</option><option value="Tisdag">Tisdag</option><option value="Onsdag">Onsdag</option><option value="Torsdag">Torsdag</option><option value="Fredag">Fredag</option><option value="Lördag">Lördag</option><option value="Söndag">Söndag</option></select>
+    
+    input type="text" name="content" placeholder="Övning"
+    input type="submit" value="Skapa ny övning" 
